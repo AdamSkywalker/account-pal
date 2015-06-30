@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/5.4/menu.xsd">
+    <item id="account$Bill.lookup"
+          insertBefore="help"/>
+    <item id="account$Shop.lookup"
+          insertBefore="account$Bill.lookup"/>
+    <item id="account$Brand.lookup"
+          insertBefore="account$Shop.lookup"/>
+    <item id="account$Product.lookup"
+          insertBefore="account$Brand.lookup"/>
+    <item id="account$Category.lookup"
+          insertBefore="account$Product.lookup"/>
+</menu-config>

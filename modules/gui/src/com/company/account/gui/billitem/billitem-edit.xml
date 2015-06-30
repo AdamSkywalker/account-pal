@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.account.gui.billitem.BillItemEdit"
+        datasource="billItemDs"
+        messagesPack="com.company.account.gui.billitem">
+    <dsContext>
+        <datasource id="billItemDs"
+                    class="com.company.account.entity.BillItem"
+                    view="billItem-view-edit"/>
+        <collectionDatasource id="productDs"
+                              class="com.company.account.entity.Product"
+                              view="_minimal">
+            <query>select p from account$Product p order by p.name</query>
+        </collectionDatasource>
+        <collectionDatasource id="brandDs"
+                              class="com.company.account.entity.Brand"
+                              view="_minimal">
+            <query>
+                select b from account$Brand b order by b.name
+            </query>
+                </collectionDatasource>
+    </dsContext>
+    <layout spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="billItemDs">
+            <column width="250px">
+                <field id="bill"
+                       editable="false"/>
+                <field id="product"
+                       optionsDatasource="productDs"/>
+                <field id="brand"
+                       optionsDatasource="brandDs"/>
+                <field id="description"/>
+                <field id="price"/>
+                <field id="count"/>
+                <field id="pricePerItem"
+                       editable="false"/>
+            </column>
+        </fieldGroup>
+        <iframe id="windowActions"
+                height="100%"
+                screen="editWindowActions"
+                stylename="window-actions"/>
+    </layout>
+</window>

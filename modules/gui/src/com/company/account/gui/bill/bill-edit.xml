@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.account.gui.bill.BillEditor"
+        datasource="billDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.account.gui.bill">
+    <dsContext>
+        <datasource id="billDs"
+                    class="com.company.account.entity.Bill"
+                    view="bill-edit">
+            <collectionDatasource id="itemsDs"
+                                  property="items"/>
+        </datasource>
+    </dsContext>
+    <layout expand="itemsBox"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="billDs">
+            <column width="250px">
+                <field id="amount"
+                       editable="false"/>
+                <field id="date"/>
+                <field id="shop"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="itemsBox" expand="itemsTable"
+                  caption="msg://com.company.account.entity/Bill.items">
+            <table id="itemsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="product"/>
+                    <column id="brand"/>
+                    <column id="description"/>
+                    <column id="price"/>
+                    <column id="count"/>
+                    <column id="pricePerItem"/>
+                </columns>
+                <rows datasource="itemsDs"/>
+                <buttonsPanel>
+                    <button action="itemsTable.create"/>
+                    <button action="itemsTable.edit"/>
+                    <button action="itemsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <iframe id="windowActions"
+                screen="editWindowActions"
+                stylename="window-actions"/>
+    </layout>
+</window>

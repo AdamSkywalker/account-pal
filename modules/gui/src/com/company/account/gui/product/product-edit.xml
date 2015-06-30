@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.account.gui.product.ProductEdit"
+        datasource="productDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.account.gui.product">
+    <dsContext>
+        <datasource id="productDs"
+                    class="com.company.account.entity.Product"
+                    view="product-view"/>
+        <collectionDatasource id="categoryDs"
+                              class="com.company.account.entity.Category"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from account$Category e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="productDs">
+            <column width="250px">
+                <field id="name"/>
+                <field id="category"
+                       optionsDatasource="categoryDs"/>
+            </column>
+        </fieldGroup>
+        <iframe id="windowActions"
+                screen="editWindowActions"
+                stylename="window-actions"/>
+    </layout>
+</window>

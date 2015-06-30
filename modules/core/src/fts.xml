@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) ${YEAR} ${PACKAGE_NAME}
+  -->
+
+<fts-config xmlns="http://schemas.haulmont.com/cuba/5.4/fts.xsd">
+    <entities>
+        <entity class="com.company.account.entity.Bill">
+            <include re=".*"/>
+        </entity>
+
+
+        <entity class="com.company.account.entity.BillItem">
+            <include re=".*"/>
+        </entity>
+
+        <entity class="com.company.account.entity.Brand">
+            <include re=".*"/>
+        </entity>
+
+        <entity class="com.company.account.entity.Category">
+            <include re=".*"/>
+        </entity>
+
+        <entity class="com.company.account.entity.Product">
+            <include re=".*"/>
+        </entity>
+
+        <entity class="com.company.account.entity.Shop">
+            <include re=".*"/>
+        </entity>
+
+    </entities>
+</fts-config>

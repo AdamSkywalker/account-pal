@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/5.4/view.xsd">
+    <view class="com.company.account.entity.Product"
+          extends="_local"
+          name="product-view">
+        <property name="category">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.company.account.entity.Bill"
+          extends="_local"
+          name="bill-edit">
+        <property name="shop">
+            <property name="name"/>
+        </property>
+        <property name="items">
+            <property name="product">
+                <property name="name"/>
+            </property>
+            <property name="description"/>
+            <property name="price"/>
+            <property name="count"/>
+            <property name="pricePerItem"/>
+            <property name="bill">
+                <property name="date"/>
+            </property>
+            <property name="brand">
+                <property name="name"/>
+            </property>
+        </property>
+    </view>
+    <view class="com.company.account.entity.Bill"
+          extends="_local"
+          name="bill-browse">
+        <property name="shop">
+            <property name="name"/>
+        </property>
+        <property name="items">
+            <property name="bill">
+                <property name="date"/>
+                <property name="shop">
+                    <property name="name"/>
+                </property>
+                <property name="amount"/>
+            </property>
+            <property name="product">
+                <property name="name"/>
+            </property>
+            <property name="description"/>
+            <property name="price"/>
+            <property name="count"/>
+            <property name="pricePerItem"/>
+        </property>
+    </view>
+    <view class="com.company.account.entity.BillItem"
+          name="billItem-view-edit">
+        <property name="product">
+            <property name="name"/>
+        </property>
+        <property name="bill">
+            <property name="shop">
+                <property name="name"/>
+            </property>
+            <property name="date"/>
+        </property>
+        <property name="description"/>
+        <property name="price"/>
+        <property name="count"/>
+        <property name="pricePerItem"/>
+        <property name="brand"
+                  view="_minimal"/>
+    </view>
+</views>

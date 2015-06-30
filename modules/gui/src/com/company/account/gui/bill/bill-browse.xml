@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.account.gui.bill.BillBrowse"
+        focusComponent="billsTable"
+        lookupComponent="billsTable"
+        messagesPack="com.company.account.gui.bill">
+    <dsContext>
+        <collectionDatasource id="billsDs"
+                              class="com.company.account.entity.Bill"
+                              view="bill-browse">
+            <query>
+                <![CDATA[select e from account$Bill e order by e.date, e.shop.name]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="billsTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="billsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="billsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="Copy"
+                        caption="Copy"
+                        invoke="copy"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="amount"/>
+                <column id="date"/>
+                <column id="shop"/>
+            </columns>
+            <rows datasource="billsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="billsTable.create"/>
+                <button id="copyBtn"
+                        action="billsTable.Copy"/>
+                <button id="editBtn"
+                        action="billsTable.edit"/>
+                <button id="removeBtn"
+                        action="billsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

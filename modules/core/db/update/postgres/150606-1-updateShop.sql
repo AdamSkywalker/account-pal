@@ -1,0 +1,1 @@
+drop index IDX_ACCOUNT_SHOP_UNIQ_ADDRESS ;

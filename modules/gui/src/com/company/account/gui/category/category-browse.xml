@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.account.gui.category.CategoryBrowse"
+        focusComponent="categoriesTable"
+        lookupComponent="categoriesTable"
+        messagesPack="com.company.account.gui.category">
+    <dsContext>
+        <collectionDatasource id="categoriesDs"
+                              class="com.company.account.entity.Category"
+                              view="_local">
+            <query>
+                <![CDATA[select e from account$Category e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="categoriesTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="categoriesDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="categoriesTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="categoriesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="categoriesTable.create"/>
+                <button id="editBtn"
+                        action="categoriesTable.edit"/>
+                <button id="removeBtn"
+                        action="categoriesTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.account.gui.billitem.BillItemBrowse"
+        focusComponent="billItemsTable"
+        lookupComponent="billItemsTable"
+        messagesPack="com.company.account.gui.billitem">
+    <dsContext>
+        <collectionDatasource id="billItemsDs"
+                              class="com.company.account.entity.BillItem"
+                              view="billItem-view-edit">
+            <query>
+                <![CDATA[select e from account$BillItem e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="billItemsTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="billItemsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="billItemsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="product"/>
+                <column id="bill"/>
+                <column id="description"/>
+                <column id="price"/>
+                <column id="count"/>
+                <column id="pricePerItem"/>
+                <column id="brand"/>
+            </columns>
+            <rows datasource="billItemsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="billItemsTable.create"/>
+                <button id="editBtn"
+                        action="billItemsTable.edit"/>
+                <button id="removeBtn"
+                        action="billItemsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
