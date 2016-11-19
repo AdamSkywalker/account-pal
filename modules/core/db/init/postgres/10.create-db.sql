@@ -61,7 +61,7 @@ create table ACCOUNT_BILL (
     --
     AMOUNT decimal(19, 2) not null,
     DATE_ date not null,
-    SHOP_ID uuid not null,
+    SHOP_ID uuid,
     --
     primary key (ID)
 )^

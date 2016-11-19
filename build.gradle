@@ -35,6 +35,11 @@ def webModule = project(':app-web')
 def postgres = 'postgresql:postgresql:9.1-901.jdbc4'
 def servletApi = 'org.apache.tomcat:tomcat-servlet-api:7.0.53'
 
+ext {
+    DB_USER = 'sergey'
+    DB_PASS = '1111'
+}
+
 
 apply(plugin: 'idea')
 apply(plugin: 'cuba')
@@ -110,16 +115,16 @@ configure(coreModule) {
         dbms = 'postgres'
         host = 'localhost'
         dbName = 'account'
-        dbUser = 'root'
-        dbPassword = 'root'
+        dbUser = DB_USER
+        dbPassword = DB_PASS
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
         dbms = 'postgres'
         host = 'localhost'
         dbName = 'account'
-        dbUser = 'root'
-        dbPassword = 'root'
+        dbUser = DB_USER
+        dbPassword = DB_PASS
     }
 }
 

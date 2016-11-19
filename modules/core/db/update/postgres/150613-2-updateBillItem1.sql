@@ -1,2 +1,0 @@
-alter table ACCOUNT_BILL_ITEM add constraint FK_ACCOUNT_BILL_ITEM_BRAND_ID foreign key (BRAND_ID) references ACCOUNT_BRAND(ID);
-create index IDX_ACCOUNT_BILL_ITEM_BRAND on ACCOUNT_BILL_ITEM (BRAND_ID);

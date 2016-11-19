@@ -3,30 +3,22 @@
  */
 package com.company.account.entity;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.haulmont.chile.core.annotations.Composition;
+import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
 import com.haulmont.cuba.core.global.AppBeans;
 import com.haulmont.cuba.core.global.DeletePolicy;
+import com.haulmont.cuba.core.global.Metadata;
+
+import javax.annotation.PostConstruct;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import com.haulmont.cuba.core.entity.StandardEntity;
-import com.haulmont.chile.core.annotations.NamePattern;
-import com.haulmont.chile.core.annotations.Composition;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
-import com.haulmont.cuba.core.global.Metadata;
-
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.OneToMany;
 
 /**
  * @author Sergey42
@@ -49,7 +41,7 @@ public class Bill extends StandardEntity {
     protected Date date;
 
     @OnDeleteInverse(DeletePolicy.DENY)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHOP_ID")
     protected Shop shop;
 
@@ -61,7 +53,7 @@ public class Bill extends StandardEntity {
     protected Set<BillItem> items;
     
     public String getInstName() {
-         return shop.getName() + " - " + new SimpleDateFormat("dd.MM.yyyy").format(getDate());
+        return (shop != null ? shop.getName() + " - " : "") + new SimpleDateFormat("dd.MM.yyyy").format(getDate());
     }
 
     public void recalculateAmount() {

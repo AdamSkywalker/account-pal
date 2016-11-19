@@ -1,2 +1,0 @@
---alter table ACCOUNT_BILL drop column DATE_ cascade ;
---alter table ACCOUNT_BILL add column DATE_ date not null ;
