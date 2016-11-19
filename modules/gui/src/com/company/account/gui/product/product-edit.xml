@@ -9,13 +9,8 @@
         <datasource id="productDs"
                     class="com.company.account.entity.Product"
                     view="product-view"/>
-        <collectionDatasource id="categoryDs"
-                              class="com.company.account.entity.Category"
-                              view="_minimal">
-            <query>
-                <![CDATA[select e from account$Category e]]>
-            </query>
-        </collectionDatasource>
+
+
     </dsContext>
     <layout expand="windowActions"
             spacing="true">
@@ -23,8 +18,6 @@
                     datasource="productDs">
             <column width="250px">
                 <field id="name"/>
-                <field id="category"
-                       optionsDatasource="categoryDs"/>
             </column>
         </fieldGroup>
         <iframe id="windowActions"

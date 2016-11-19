@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <screen-config xmlns="http://schemas.haulmont.com/cuba/5.4/screens.xsd">
-    <screen id="account$Category.lookup"
-            template="com/company/account/gui/category/category-browse.xml"/>
-    <screen id="account$Category.edit"
-            template="com/company/account/gui/category/category-edit.xml"/>
+
     <screen id="account$Product.lookup"
             template="com/company/account/gui/product/product-browse.xml"/>
     <screen id="account$Product.edit"
             template="com/company/account/gui/product/product-edit.xml"/>
-    <screen id="account$Shop.lookup"
-            template="com/company/account/gui/shop/shop-browse.xml"/>
-    <screen id="account$Shop.edit"
-            template="com/company/account/gui/shop/shop-edit.xml"/>
     <screen id="account$Bill.lookup"
             template="com/company/account/gui/bill/bill-browse.xml"/>
     <screen id="account$Bill.edit"
             template="com/company/account/gui/bill/bill-edit.xml"/>
-    <screen id="account$BillItem.lookup"
-            template="com/company/account/gui/billitem/billitem-browse.xml"/>
-    <screen id="account$BillItem.edit"
-            template="com/company/account/gui/billitem/billitem-edit.xml"/>
-    <screen id="account$Brand.lookup"
-            template="com/company/account/gui/brand/brand-browse.xml"/>
-    <screen id="account$Brand.edit"
-            template="com/company/account/gui/brand/brand-edit.xml"/>
+
 </screen-config>

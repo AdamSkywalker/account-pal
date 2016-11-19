@@ -8,14 +8,19 @@
     <dsContext>
         <collectionDatasource id="billsDs"
                               class="com.company.account.entity.Bill"
-                              view="bill-browse">
+                              view="bill-edit">
             <query>
-                <![CDATA[select e from account$Bill e order by e.date, e.shop.name]]>
+                <![CDATA[select e from account$Bill e order by e.date
+                ]]>
             </query>
         </collectionDatasource>
     </dsContext>
     <layout expand="billsTable"
             spacing="true">
+        <vbox>
+            <label id="month"/>
+            <label id="week"/>
+        </vbox>
         <filter id="filter"
                 datasource="billsDs">
             <properties include=".*"/>
@@ -24,16 +29,13 @@
                width="100%">
             <actions>
                 <action id="create"/>
-                <action id="Copy"
-                        caption="Copy"
-                        invoke="copy"/>
                 <action id="edit"/>
                 <action id="remove"/>
             </actions>
             <columns>
+                <column id="product"/>
                 <column id="amount"/>
                 <column id="date"/>
-                <column id="shop"/>
             </columns>
             <rows datasource="billsDs"/>
             <rowsCount/>
@@ -41,8 +43,6 @@
                           alwaysVisible="true">
                 <button id="createBtn"
                         action="billsTable.create"/>
-                <button id="copyBtn"
-                        action="billsTable.Copy"/>
                 <button id="editBtn"
                         action="billsTable.edit"/>
                 <button id="removeBtn"

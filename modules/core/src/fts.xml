@@ -14,21 +14,10 @@
             <include re=".*"/>
         </entity>
 
-        <entity class="com.company.account.entity.Brand">
-            <include re=".*"/>
-        </entity>
-
-        <entity class="com.company.account.entity.Category">
-            <include re=".*"/>
-        </entity>
-
         <entity class="com.company.account.entity.Product">
             <include re=".*"/>
         </entity>
 
-        <entity class="com.company.account.entity.Shop">
-            <include re=".*"/>
-        </entity>
 
     </entities>
 </fts-config>

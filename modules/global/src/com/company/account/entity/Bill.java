@@ -3,34 +3,26 @@
  */
 package com.company.account.entity;
 
-import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
-import com.haulmont.cuba.core.entity.annotation.OnDelete;
-import com.haulmont.cuba.core.entity.annotation.OnDeleteInverse;
-import com.haulmont.cuba.core.global.AppBeans;
-import com.haulmont.cuba.core.global.DeletePolicy;
-import com.haulmont.cuba.core.global.Metadata;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author Sergey42
  */
-@NamePattern("#getInstName|shop,date")
+@NamePattern("#getInstName|date")
 @Table(name = "ACCOUNT_BILL")
 @Entity(name = "account$Bill")
 public class Bill extends StandardEntity {
 
     @PostConstruct
     protected void init() {
-        setItems(new HashSet<BillItem>());
+        setDate(new Date());
     }
 
     @Column(name = "AMOUNT", nullable = false)
@@ -40,40 +32,21 @@ public class Bill extends StandardEntity {
     @Column(name = "DATE_", nullable = false)
     protected Date date;
 
-    @OnDeleteInverse(DeletePolicy.DENY)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SHOP_ID")
-    protected Shop shop;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "PRODUCT_ID")
+    protected Product product;
+
+    @Column(name = "DESCRIPTION")
+    protected String description;
 
     private static final long serialVersionUID = -4700688709890728340L;
 
-    @Composition
-    @OnDelete(DeletePolicy.CASCADE)
-    @OneToMany(mappedBy = "bill")
-    protected Set<BillItem> items;
-    
     public String getInstName() {
-        return (shop != null ? shop.getName() + " - " : "") + new SimpleDateFormat("dd.MM.yyyy").format(getDate());
-    }
-
-    public void recalculateAmount() {
-        BigDecimal total = new BigDecimal(0);
-        for (BillItem item : items) {
-            total = total.add(item.getPrice());
-        }
-        setAmount(total);
+        return new SimpleDateFormat("dd.MM.yyyy").format(getDate());
     }
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
-    }
-
-    public void setItems(Set<BillItem> items) {
-        this.items = items;
-    }
-
-    public Set<BillItem> getItems() {
-        return items;
     }
 
     public BigDecimal getAmount() {
@@ -88,24 +61,20 @@ public class Bill extends StandardEntity {
         return date;
     }
 
-    public void setShop(Shop shop) {
-        this.shop = shop;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Shop getShop() {
-        return shop;
+    public String getDescription() {
+        return description;
     }
 
 
-    public Bill copy() {
-        Bill bill = AppBeans.get(Metadata.class).create(Bill.class);
-        bill.setDate(getDate());
-        bill.setShop(getShop());
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-        for (BillItem item : items) {
-           item.copy(bill);
-        }
-        bill.recalculateAmount();
-        return bill;
+    public Product getProduct() {
+        return product;
     }
 }
