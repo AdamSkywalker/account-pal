@@ -25,12 +25,13 @@
                 datasource="billsDs">
             <properties include=".*"/>
         </filter>
-        <table id="billsTable"
-               width="100%">
+        <groupTable id="billsTable"
+                    width="100%">
             <actions>
                 <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
+                <action id="refresh"/>
             </actions>
             <columns>
                 <column id="product"/>
@@ -47,7 +48,8 @@
                         action="billsTable.edit"/>
                 <button id="removeBtn"
                         action="billsTable.remove"/>
+                <button id="refreshBtn" action="billsTable.refresh"/>
             </buttonsPanel>
-        </table>
+        </groupTable>
     </layout>
 </window>
