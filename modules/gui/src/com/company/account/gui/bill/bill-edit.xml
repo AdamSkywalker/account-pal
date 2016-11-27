@@ -12,6 +12,8 @@
         </datasource>
         <collectionDatasource id="productDs"
                               class="com.company.account.entity.Product"/>
+        <collectionDatasource id="shopDs"
+                              class="com.company.account.entity.Shop"/>
     </dsContext>
     <layout expand="windowActions"
             spacing="true">
@@ -22,6 +24,7 @@
                 />
                 <field id="date"/>
                 <field id="product" optionsDatasource="productDs"/>
+                <field id="shop" optionsDatasource="shopDs"/>
                 <field id="description"/>
             </column>
         </fieldGroup>

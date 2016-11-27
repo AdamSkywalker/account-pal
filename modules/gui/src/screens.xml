@@ -9,5 +9,9 @@
             template="com/company/account/gui/bill/bill-browse.xml"/>
     <screen id="account$Bill.edit"
             template="com/company/account/gui/bill/bill-edit.xml"/>
+    <screen id="account$Shop.lookup"
+            template="com/company/account/gui/shop/shop-browse.xml"/>
+    <screen id="account$Shop.edit"
+            template="com/company/account/gui/shop/shop-edit.xml"/>
 
 </screen-config>

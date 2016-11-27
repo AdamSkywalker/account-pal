@@ -36,6 +36,10 @@ public class Bill extends StandardEntity {
     @JoinColumn(name = "PRODUCT_ID")
     protected Product product;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SHOP_ID")
+    protected Shop shop;
+
     @Column(name = "DESCRIPTION")
     protected String description;
 
@@ -76,5 +80,13 @@ public class Bill extends StandardEntity {
 
     public Product getProduct() {
         return product;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

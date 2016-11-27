@@ -8,5 +8,6 @@
           extends="_local"
           name="bill-edit">
         <property name="product" view="product-view"/>
+        <property name="shop" view="_minimal"/>
     </view>
 </views>

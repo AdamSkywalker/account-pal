@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) ${YEAR} ${PACKAGE_NAME}
+  -->
+
+<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.account.gui.shop.ShopBrowse"
+        focusComponent="shopsTable"
+        lookupComponent="shopsTable"
+        messagesPack="com.company.account.gui.shop">
+    <dsContext>
+        <collectionDatasource id="shopsDs"
+                              class="com.company.account.entity.Shop"
+                              view="_local">
+            <query>
+                <![CDATA[select e from account$Shop e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="shopsTable"
+            spacing="true">
+        <filter id="filter"
+                datasource="shopsDs">
+            <properties include=".*"/>
+        </filter>
+        <table id="shopsTable"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="shopsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="shopsTable.create"/>
+                <button id="editBtn"
+                        action="shopsTable.edit"/>
+                <button id="removeBtn"
+                        action="shopsTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
