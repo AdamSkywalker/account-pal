@@ -36,7 +36,9 @@
             <columns>
                 <column id="product"/>
                 <column id="amount"/>
-                <column id="date"/>
+                <column id="date">
+                    <formatter class="com.company.account.gui.bill.DateFormatter"/>
+                </column>
                 <column id="shop"/>
             </columns>
             <rows datasource="billsDs"/>
