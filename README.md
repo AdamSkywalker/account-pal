@@ -10,5 +10,6 @@ Personal account management system built on CUBA platform
 
 
 
-![Screenshot]
-(https://github.com/AdamSkywalker/account-pal/blob/master/screenshot.jpg)
+![screenshot]
+
+[screenshot]: https://github.com/AdamSkywalker/account-pal/blob/master/screenshot.jpg
