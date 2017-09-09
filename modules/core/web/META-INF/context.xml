@@ -5,10 +5,10 @@
               maxIdle="2"
               maxWait="5000"
               name="jdbc/CubaDS"
-              password="1111"
+              password="root"
               type="javax.sql.DataSource"
               url="jdbc:postgresql://localhost/account"
-              username="sergey"/>
+              username="pg"/>
     <!-- Switch off session serialization -->
     <Manager className="org.apache.catalina.session.PersistentManager"
              debug="0"

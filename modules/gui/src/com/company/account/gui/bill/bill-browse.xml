@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://browseCaption"
         class="com.company.account.gui.bill.BillBrowse"
         focusComponent="billsTable"
@@ -25,8 +25,8 @@
                 datasource="billsDs">
             <properties include=".*"/>
         </filter>
-        <groupTable id="billsTable"
-                    width="100%">
+        <table id="billsTable"
+               width="100%">
             <actions>
                 <action id="create"/>
                 <action id="edit"/>
@@ -53,6 +53,6 @@
                         action="billsTable.remove"/>
                 <button id="refreshBtn" action="billsTable.refresh"/>
             </buttonsPanel>
-        </groupTable>
+        </table>
     </layout>
 </window>

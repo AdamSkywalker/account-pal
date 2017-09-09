@@ -5,6 +5,7 @@ Personal account management system built on CUBA platform
 
     ./gradlew assembly ide
     ./gradlew createDb
+    ./gradlew setupTomcat
     ./gradlew deploy start
 
 

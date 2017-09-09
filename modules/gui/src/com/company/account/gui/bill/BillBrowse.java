@@ -7,13 +7,11 @@ import com.company.account.entity.Bill;
 import com.haulmont.cuba.gui.components.AbstractLookup;
 import com.haulmont.cuba.gui.components.Label;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
-import com.haulmont.cuba.gui.data.impl.CollectionDsListenerAdapter;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -33,13 +31,7 @@ public class BillBrowse extends AbstractLookup {
         super.ready();
         updateStats();
 
-        billsDs.addListener(new CollectionDsListenerAdapter<Bill>() {
-            @Override
-            public void collectionChanged(CollectionDatasource ds, Operation operation, List<Bill> items) {
-                super.collectionChanged(ds, operation, items);
-                updateStats();
-            }
-        });
+        billsDs.addCollectionChangeListener(e -> updateStats());
     }
 
     private void updateStats() {
