@@ -3,7 +3,7 @@
   ~ Copyright (c) ${YEAR} ${PACKAGE_NAME}
   -->
 
-<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://browseCaption"
         class="com.company.account.gui.shop.ShopBrowse"
         focusComponent="shopsTable"

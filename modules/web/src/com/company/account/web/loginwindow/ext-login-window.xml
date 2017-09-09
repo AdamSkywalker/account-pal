@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.account.web.loginwindow.ExtAppLoginWindow"
+        extends="/com/haulmont/cuba/web/app/loginwindow/loginwindow.xml"
+        messagesPack="com.company.account.web.loginwindow"
+>
+    <layout>
+        <vbox id="loginWrapper"
+              spacing="true">
+            <vbox id="loginMainBox">
+                <grid id="loginFormLayout">
+                    <rows>
+                        <row>
+                            <hbox colspan="1" align="MIDDLE_CENTER" spacing="true">
+                                <linkButton id="registerBtn"
+                                            caption="Register"
+                                            invoke="onRegisterBtnClick"/>
+                                <!--<linkButton id="restorePasswordBtn"
+                                            caption="Restore password"
+                                            invoke="onRestorePasswordBtnClick"/>-->
+                            </hbox>
+                        </row>
+                    </rows>
+                </grid>
+            </vbox>
+        </vbox>
+    </layout>
+</window>

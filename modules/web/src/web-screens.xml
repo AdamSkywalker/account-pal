@@ -3,4 +3,11 @@
 
     <include file="/screens.xml"/>
 
+    <screen id="loginWindow"
+            template="com/company/account/web/loginwindow/ext-login-window.xml"/>
+    <screen id="register-screen"
+            template="com/company/account/web/register/register-screen.xml"/>
+    <screen id="restore-password-screen"
+            template="com/company/account/web/restorepassword/restore-password-screen.xml"/>
+
 </screen-config>
