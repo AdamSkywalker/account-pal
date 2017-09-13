@@ -7,6 +7,7 @@ import com.company.account.entity.Bill;
 import com.haulmont.cuba.gui.components.AbstractLookup;
 import com.haulmont.cuba.gui.components.Label;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
+import org.apache.commons.lang.time.DateUtils;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
@@ -40,23 +41,31 @@ public class BillBrowse extends AbstractLookup {
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
         Date monthStart = calendar.getTime();
 
         Calendar c2 = Calendar.getInstance();
         c2.setFirstDayOfWeek(Calendar.MONDAY);
         c2.set(Calendar.DAY_OF_WEEK, c2.getFirstDayOfWeek());
+        c2.set(Calendar.HOUR_OF_DAY, 0);
+        c2.set(Calendar.MINUTE, 0);
         Date weekStart = c2.getTime();
 
         for (Bill bill : billsDs.getItems()) {
-            if (monthStart.before(bill.getDate())) {
+            if (before(monthStart, bill.getDate())) {
                 monthSum = monthSum.add(bill.getAmount());
             }
-            if (weekStart.before(bill.getDate())) {
+            if (before(weekStart, bill.getDate())) {
                 weekSum = weekSum.add(bill.getAmount());
             }
         }
 
-        month.setValue("This month: " + monthSum.toString());
-        week.setValue("This week: " + weekSum.toString());
+        month.setValue(messages.formatMessage(getClass(), "thisMonth", monthSum.toString()));
+        week.setValue(messages.formatMessage(getClass(), "thisWeek", weekSum.toString()));
+    }
+
+    private boolean before(Date d1, Date d2) {
+        return d1.before(d2) || DateUtils.isSameDay(d1, d2);
     }
 }
