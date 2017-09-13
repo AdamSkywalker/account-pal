@@ -1,6 +1,8 @@
 # account-pal
 Personal account management system built on CUBA platform
 
+Service is available at balance.skywind.xyz
+
 ###  Build:
 
     ./gradlew assembly ide
