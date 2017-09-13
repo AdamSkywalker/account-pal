@@ -1,7 +1,7 @@
 # account-pal
 Personal account management system built on CUBA platform
 
-Service is available at balance.skywind.xyz
+Service is available at [balance.skywind.xyz](http://balance.skywind.xyz)
 
 ###  Build:
 
