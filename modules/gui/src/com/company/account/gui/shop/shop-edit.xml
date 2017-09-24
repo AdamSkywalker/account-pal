@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--
-  ~ Copyright (c) ${YEAR} ${PACKAGE_NAME}
-  -->
-
-<window xmlns="http://schemas.haulmont.com/cuba/5.4/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://editCaption"
         class="com.company.account.gui.shop.ShopEdit"
         datasource="shopDs"
@@ -22,7 +17,7 @@
                 <field id="name"/>
             </column>
         </fieldGroup>
-        <iframe id="windowActions"
-                screen="editWindowActions"/>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
     </layout>
 </window>

@@ -20,6 +20,7 @@
         <vbox>
             <label id="month"/>
             <label id="week"/>
+            <label id="screen"/>
         </vbox>
         <filter id="filter"
                 datasource="billsDs">

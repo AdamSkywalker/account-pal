@@ -11,6 +11,7 @@ import com.haulmont.cuba.gui.components.Label;
 import com.haulmont.cuba.gui.data.CollectionDatasource;
 
 import javax.inject.Inject;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 /**
@@ -22,6 +23,8 @@ public class BillBrowse extends AbstractLookup {
     protected Label month;
     @Inject
     protected Label week;
+    @Inject
+    protected Label screen;
     @Inject
     protected CollectionDatasource<Bill, UUID> billsDs;
     @Inject
@@ -38,7 +41,10 @@ public class BillBrowse extends AbstractLookup {
     private void updateStats() {
         BillStatistics statistics = billService.calculateStats();
 
-        month.setValue(messages.formatMessage(getClass(), "thisMonth", statistics.getCurrentMonthTotal()));
-        week.setValue(messages.formatMessage(getClass(), "thisWeek", statistics.getCurrentWeekTotal()));
+        month.setValue(formatMessage("thisMonth", statistics.getCurrentMonthTotal()));
+        week.setValue(formatMessage("thisWeek", statistics.getCurrentWeekTotal()));
+
+        long screenSum = billsDs.getItems().stream().map(Bill::getAmount).mapToLong(BigDecimal::longValue).sum();
+        screen.setValue(formatMessage("thisScreen", screenSum));
     }
 }
