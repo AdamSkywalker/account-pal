@@ -15,13 +15,24 @@
             </query>
         </collectionDatasource>
     </dsContext>
-    <layout expand="billsTable"
-            spacing="true">
-        <vbox>
-            <label id="month"/>
-            <label id="week"/>
-            <label id="screen"/>
-        </vbox>
+    <layout expand="billsTable" spacing="true">
+        <grid spacing="true">
+            <columns count="2"/>
+            <rows>
+                <row>
+                    <label id="currentMonth"/>
+                    <label id="previousMonth"/>
+                </row>
+                <row>
+                    <label id="currentWeek"/>
+                    <label id="previousWeek"/>
+                </row>
+                <row>
+                    <label id="screen"/>
+                </row>
+            </rows>
+        </grid>
+
         <filter id="filter"
                 datasource="billsDs">
             <properties include=".*"/>

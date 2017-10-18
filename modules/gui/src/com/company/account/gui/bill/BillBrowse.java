@@ -20,9 +20,13 @@ import java.util.UUID;
 public class BillBrowse extends AbstractLookup {
 
     @Inject
-    protected Label month;
+    protected Label currentMonth;
     @Inject
-    protected Label week;
+    protected Label currentWeek;
+    @Inject
+    protected Label previousMonth;
+    @Inject
+    protected Label previousWeek;
     @Inject
     protected Label screen;
     @Inject
@@ -41,8 +45,10 @@ public class BillBrowse extends AbstractLookup {
     private void updateStats() {
         BillStatistics statistics = billService.calculateStats();
 
-        month.setValue(formatMessage("thisMonth", statistics.getCurrentMonthTotal()));
-        week.setValue(formatMessage("thisWeek", statistics.getCurrentWeekTotal()));
+        currentMonth.setValue(formatMessage("thisMonth", statistics.getCurrentMonthTotal()));
+        currentWeek.setValue(formatMessage("thisWeek", statistics.getCurrentWeekTotal()));
+        previousMonth.setValue(formatMessage("prevMonth", statistics.getPreviousMonthTotal()));
+        previousWeek.setValue(formatMessage("prevWeek", statistics.getPreviousWeekTotal()));
 
         long screenSum = billsDs.getItems().stream().map(Bill::getAmount).mapToLong(BigDecimal::longValue).sum();
         screen.setValue(formatMessage("thisScreen", screenSum));

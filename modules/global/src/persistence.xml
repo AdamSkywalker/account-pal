@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              version="2.0">
-    <persistence-unit name="AccountPal"
+    <persistence-unit name="account-pal"
                       transaction-type="RESOURCE_LOCAL">
         <class>com.company.account.entity.Product</class>
         <class>com.company.account.entity.Bill</class>
