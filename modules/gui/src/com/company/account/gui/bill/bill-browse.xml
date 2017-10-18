@@ -10,7 +10,7 @@
                               class="com.company.account.entity.Bill"
                               view="bill-edit">
             <query>
-                <![CDATA[select e from account$Bill e order by e.date
+                <![CDATA[select e from account$Bill e order by e.date desc
                 ]]>
             </query>
         </collectionDatasource>
